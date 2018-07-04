@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 // Serve express static files.
-app.use(express.static(path.resolve(__dirname, './client/build')));
+app.use(express.static(path.resolve(__dirname, './build')));
 
 //Enable CORS
 app.use(function(req, res, next) {
@@ -22,7 +22,7 @@ app.get('/api', function (req, res) {
 
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+  response.sendFile(path.resolve(__dirname, './build', 'index.html'));
 });
 // Set server port
 const PORT = process.env.PORT || 4000;
